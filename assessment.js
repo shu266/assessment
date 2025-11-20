@@ -14,14 +14,24 @@ assessmentButton.addEventListener(
 
   resultDivision.innerText = '';
   
-  const header = document.createElement('h3');
-  header.innerText = '診断結果';
-  resultDivision.appendChild(header);
 
-  const paragraph = document.createElement('p');
-  const result = assessment(userName);
-  paragraph.innerText = result;
-  resultDivision.appendChild(paragraph);
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class', 'card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class', 'card-body');
+
+    const paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'card-text');
+    const result = assessment(userName);
+    paragraph.innerText = result;
+    bodyDivision.appendChild(paragraph);
+
+    resultDivision.setAttribute('class', 'card');
+
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
   
   
   
@@ -37,9 +47,9 @@ assessmentButton.addEventListener(
 
     tweetDivision.appendChild(anchor);
 
-  const script = document.createElement('script')
-  script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-  tweetDivision.appendChild('script')
+   const script = document.createElement('script');
+    script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+    tweetDivision.appendChild(script);
   }
 ); 
 
